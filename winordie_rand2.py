@@ -19,7 +19,7 @@ def doors_printer():
 def gruedoor():
 	global grue_door
 	options = ['left', 'right']
-	grue_door = random.choice(options) #In this case if the door is True the Grue is behind the left door, if False it's behind the right door, this is checked in the first if statement of the dooreval function.
+	grue_door = random.choice(options) #Uses random to assign the grue to the left or right door.
 	return grue_door
 def dooreval(door):	
 	global player_state
