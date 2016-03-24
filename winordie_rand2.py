@@ -1,9 +1,16 @@
 #An updated version of WinOrDie_rand - using left/right in the random choice area of gruedoor to make the 
 
 import random
+from colorama import init
+from colorama import Fore, Back, Style
+init()
 
 def doors_printer():
-    for i in range (0,8):
+    for i in range (0,4):
+        print("\n")
+    title()
+    print(Style.BRIGHT + Fore.BLUE)
+    for i in range (0,2):
         print("\n")
     print(" " * 10 + " ╔" + "═" * 21 + "╗" + " " * 10 + " ╔" + "═" * 21 + "╗")
     for i in range(0, 10):
@@ -13,13 +20,22 @@ def doors_printer():
     for i in range(0, 11):
         print(" " * 10 + " ║"+" " * 21 + "║" + " " * 10 + " ║"+" " * 21 + "║")
     print(" " * 10 + " ╚" + "═" * 21 + "╝" + " " * 10 + " ╚" + "═" * 21 + "╝")
+    print(Style.RESET_ALL)
     for i in range (0,3):
         print("\n")
-		
+def title():
+    print(Fore.RED + '     __      __              _____          ____                __')
+    print("    /\\ \\  __/\\ \\  __        /\\  __`\\       /\\  _`\\   __        /\\ \\")
+    print("    \\ \\ \\/\\ \\ \\ \\/\\_\\    ___\\ \\ \\/\\ \\  _ __\\ \\ \\/\\ \\/\\_\\     __\\ \\ \\")
+    print("     \\ \\ \\ \\ \\ \\ \\/\\ \\ /' _ `\\ \\ \\ \\ \\/\\`'__\\ \\ \\ \\ \\/\\ \\  /'__`\\ \\ \\")
+    print("      \\ \\ \\_/ \\_\\ \\ \\ \\/\\ \\/\\ \\ \\ \\_\\ \\ \\ \\/ \\ \\ \\_\\ \\ \\ \\/\\  __/\\ \\_\\")
+    print("       \\ `\\___x___/\\ \\_\\ \\_\\ \\_\\ \\_____\\ \\_\\  \\ \\____/\\ \\_\\ \\____ \\/\\_\\")
+    print("        '\/__//__/  \/_/\/_/\/_/\/_____/\/_/   \/___/  \/_/\/____/ \/_/")
+    print(Fore.RESET)
 def gruedoor():
 	global grue_door
 	options = ['left', 'right']
-	grue_door = random.choice(options) #Uses random to assign the grue to the left or right door.
+	grue_door = random.choice(options) #In this case if the door is True the Grue is behind the left door, if False it's behind the right door, this is checked in the first if statement of the dooreval function.
 	return grue_door
 def dooreval(door):	
 	global player_state
